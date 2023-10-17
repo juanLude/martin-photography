@@ -6,7 +6,7 @@ import ImgFour from "../../assets/images/personal-gallery/imgFour.jpeg";
 
 const About = () => {
   useEffect(() => {
-    document.title = "Blog | Travel with Catherine";
+    document.title = "Martin Scarponi | Photography";
   });
 
   return (

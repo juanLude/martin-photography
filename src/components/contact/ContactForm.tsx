@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
-// import dotenv from "dotenv";
+import { useNavigate } from "react-router-dom";
 //images
 import OK from "../../assets/images/ok.png";
 
@@ -35,7 +35,9 @@ const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
   const captchaRef = useRef<ReCAPTCHA>(null);
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
+  // State to track whether the success message is displayed
+  const [successMessageDisplayed, setSuccessMessageDisplayed] = useState(false);
   const [formValue, setFormValue] = useState<formValueI>({
     firstname: "",
     lastname: "",
@@ -71,6 +73,7 @@ const ContactForm = () => {
               email: "",
               message: "",
             });
+            setSuccessMessageDisplayed(true); // Display the success message
           }
           setLoading(false);
         },
@@ -80,6 +83,16 @@ const ContactForm = () => {
       );
     }
   };
+  // Use useEffect to trigger navigation after 2 seconds
+  useEffect(() => {
+    if (successMessageDisplayed) {
+      const timeout = setTimeout(() => {
+        navigate("/"); // Navigate to the root page
+      }, 2000); // 2 seconds
+      return () => clearTimeout(timeout); // Clean up the timeout if the component unmounts
+    }
+  }, [successMessageDisplayed, navigate]);
+
   const validateForm = (value: formValueI) => {
     let errors: errorObjI = {};
     const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -143,7 +156,8 @@ const ContactForm = () => {
         <div className="loader-container">
           <img
             className="spinner"
-            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2dzNDhuejZ1d2VhNnY1bmxrNjl2ZmZiaXM2dDVzZjMzb2hjN2ZieCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Rd755PrtAEhZLLTt2N/giphy.gif"
+            // src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2dzNDhuejZ1d2VhNnY1bmxrNjl2ZmZiaXM2dDVzZjMzb2hjN2ZieCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Rd755PrtAEhZLLTt2N/giphy.gif"
+            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTdvMTBhYzQ5ZWZ2cmNrbXNrNmgwM2VqanY5ejEwNDI0bmg0bGV4OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zUYnySVEILN50cDUls/giphy.gif"
             alt=""
             aria-hidden="true"
           />

@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 import Images from "./Images";
 import ResetLocation from "../../helpers/ResetLocation";
 import "react-slideshow-image/dist/styles.css";
+import Footer from "../Footer/Footer";
 
 export type imagesToShow = {
   id: number;
@@ -137,6 +138,7 @@ const Gallery = () => {
           </button>
         </section>
       ) : null}
+      <Footer />
     </article>
   );
 };

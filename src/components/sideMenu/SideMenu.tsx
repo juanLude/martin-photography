@@ -90,7 +90,7 @@
 
 // export default SideMenu;
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import hiddenMenuIcon from "../../assets/images/burger-passive.png";
 import activeMenuIcon from "../../assets/images/burger-active.png";
@@ -103,6 +103,7 @@ const activeMenuStyles: CSS.Properties = {
 
 const SideMenu = () => {
   const [hiddenMenu, setHiddenMenu] = useState<boolean>(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
 
   function ToggleMenu() {
@@ -113,9 +114,28 @@ const SideMenu = () => {
     setHiddenMenu(true);
     window.scrollTo(0, 0);
   }
+  useEffect(() => {
+    // Listen for scroll events and toggle the isScrolled state
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <nav className={`fixed top-0 left-0 right-0 bg-white shadow-md z-50`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 bg-white shadow-md z-50 pb-1 transition-all duration-300 ${
+        isScrolled ? "py-1" : "py-2"
+      }`}
+    >
       <div className="flex justify-between items-center py-2 px-4">
         {/* <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light">
           <span className="text-4xl sm:text-5xl font-semibold font-namefont">
@@ -135,7 +155,7 @@ const SideMenu = () => {
       <div
         className={`main-menu${
           hiddenMenu ? `` : ` show-menu`
-        } flex items-center text-xl gap-5 text-slate-600 hidden md:flex`}
+        } flex flex-col md:flex-row items-center text-xl gap-5 text-slate-600 hidden md:flex`}
       >
         <NavLink
           className="hover:text-blue-600 smooth-transition"
@@ -144,7 +164,7 @@ const SideMenu = () => {
             RemoveMenu();
           }}
         >
-          <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light">
+          <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light pl-3">
             <span className="text-4xl sm:text-5xl font-semibold font-namefont">
               Martin Scarponi
             </span>

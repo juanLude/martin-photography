@@ -9,18 +9,19 @@ import Contact from "./components/contact/Contact";
 //Styles
 import "./core-ui/index.css";
 import BlogPost from "./components/blog-post/BlogPost";
-
+import Footer from "./components/Footer/Footer";
 
 const App: FC = () => {
   return (
     <Router>
       <SideMenu />
+      <Footer />
       <Routes>
         <Route path="/" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/blog/:title" element={<BlogPost/>} />
+        <Route path="/blog/:title" element={<BlogPost />} />
       </Routes>
     </Router>
   );
