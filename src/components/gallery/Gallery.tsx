@@ -80,7 +80,7 @@ const Gallery = () => {
   }, [handleNextClick, handlePrevClick]);
 
   return (
-    <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide">
+    <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide mt-24">
       <Images
         imagesToShow={currentBlogPosts}
         toggle={toggle}

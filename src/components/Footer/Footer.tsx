@@ -14,6 +14,10 @@ export default function Footer() {
           <p>&copy; 2023 Juan Ludevid. All rights reserved.</p>
           <p>Contact: martinscarponi@gmail.com</p>
         </div> */}
+        {/* <p>
+          Want to stay in touch? Get social and keep up to date by clicking on
+          the icons below.
+        </p> */}
         <div className="social-media-icons">
           <a href="https://www.facebook.com/your-facebook-page">
             <FontAwesomeIcon icon={faFacebook} />
