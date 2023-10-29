@@ -102,11 +102,45 @@ const activeMenuStyles: CSS.Properties = {
   textDecoration: "none",
   color: "rgb(37, 99, 235)",
 };
+const SubMenu = () => {
+  return (
+    <div className="relative rounded">
+      <div className="absolute left-0 top-0">
+        <span className="block bg-white p-2">
+          <NavLink
+            to="/gallery/weddings"
+            className="text-slate-600 hover:text-blue-600 smooth-transition"
+          >
+            Weddings
+          </NavLink>
+        </span>
+        <span className="block bg-white p-2">
+          <NavLink
+            to="/gallery/couples"
+            className="py-2 text-slate-600 hover:text-blue-600 smooth-transition"
+            // className="absolute bg-white left-0 top-12 w-100"
+          >
+            Couples
+          </NavLink>
+        </span>
+        <span className="block bg-white p-2">
+          <NavLink
+            to="/gallery/parties"
+            className="py-2 text-slate-600 hover:text-blue-600 smooth-transition"
+            // className="py-1 absolute bg-white left-0 top-24 w-200"
+          >
+            Parties
+          </NavLink>
+        </span>
+      </div>
+    </div>
+  );
+};
 
 const SideMenu = () => {
   const [hiddenMenu, setHiddenMenu] = useState<boolean>(true);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const [showSubMenu, setShowSubMenu] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
 
   function ToggleMenu() {
@@ -135,7 +169,8 @@ const SideMenu = () => {
   }, []);
 
   const navbarClassName = `fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300 ${
-    isScrolled ? "py-1" : "py-2.5"
+    // isScrolled ? "py-1" : "py-2.5"
+    isScrolled ? "hidden" : "py-2.5"
   }`;
 
   return (
@@ -173,7 +208,7 @@ const SideMenu = () => {
             RemoveMenu();
           }}
         >
-          <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light pl-3">
+          <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light pl-3 pr-6">
             <span className="text-4xl sm:text-5xl font-semibold font-namefont">
               Martin Scarponi
             </span>
@@ -183,13 +218,16 @@ const SideMenu = () => {
         </NavLink>
 
         <NavLink
-          className="hover:text-blue-600 smooth-transition"
+          className="hover:text-blue-600 smooth-transition ml-24"
           to="/"
           onClick={() => {
             RemoveMenu();
           }}
+          onMouseEnter={() => setShowSubMenu(true)}
+          onMouseLeave={() => setShowSubMenu(false)}
         >
           Gallery
+          {showSubMenu && <SubMenu />}
         </NavLink>
         <NavLink
           className="hover:text-blue-600 smooth-transition"

@@ -15,7 +15,7 @@ const App: FC = () => {
   return (
     <Router>
       <SideMenu />
-      <Footer />
+      {/* <Footer /> */}
       <Routes>
         <Route path="/" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} />

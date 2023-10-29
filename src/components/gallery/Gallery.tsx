@@ -138,7 +138,7 @@ const Gallery = () => {
           </button>
         </section>
       ) : null}
-      <Footer />
+      {/* <Footer /> */}
     </article>
   );
 };
