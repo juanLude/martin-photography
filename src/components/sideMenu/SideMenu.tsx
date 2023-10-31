@@ -104,7 +104,7 @@ const activeMenuStyles: CSS.Properties = {
 };
 const SubMenu = () => {
   return (
-    <div className="relative rounded">
+    <div className="relative ">
       <div className="absolute left-0 top-0">
         <span className="block bg-white p-2">
           <NavLink
@@ -168,9 +168,10 @@ const SideMenu = () => {
     };
   }, []);
 
-  const navbarClassName = `fixed top-0 left-0 right-0 bg-white shadow-md z-50 transition-all duration-300 ${
-    // isScrolled ? "py-1" : "py-2.5"
-    isScrolled ? "hidden" : "py-2.5"
+  const navbarClassName = `fixed top-0 left-0 right-0 bg-white shadow-md z-50 ${
+    isScrolled
+      ? "py-0 opacity-0 transition-all duration-300"
+      : "py-2.5 opacity-100 transition-all duration-300"
   }`;
 
   return (
@@ -199,74 +200,78 @@ const SideMenu = () => {
       <div
         className={`main-menu${
           hiddenMenu ? `` : ` show-menu`
-        } flex flex-col md:flex-row items-center text-xl gap-5 text-slate-600 hidden md:flex`}
+        } flex flex-col md:flex-row items-center text-xl gap-8 text-slate-600 hidden md:flex p-6`}
       >
-        <NavLink
-          className="hover:text-blue-600 smooth-transition"
-          to="/"
-          onClick={() => {
-            RemoveMenu();
-          }}
-        >
-          <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light pl-3 pr-6">
-            <span className="text-4xl sm:text-5xl font-semibold font-namefont">
-              Martin Scarponi
-            </span>
-            {/* <br />
+        <div className="flex items-center">
+          <NavLink
+            className="hover:text-blue-600 smooth-transition"
+            to="/"
+            onClick={() => {
+              RemoveMenu();
+            }}
+          >
+            <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light pl-3 pr-6">
+              <span className="text-4xl sm:text-5xl font-semibold font-namefont">
+                Martin Scarponi
+              </span>
+              {/* <br />
             Photography */}
-          </h1>
-        </NavLink>
+            </h1>
+          </NavLink>
+        </div>
+        <div className="ml-96 ">
+          <NavLink
+            className="inline-block hover:text-blue-600 smooth-transition "
+            to="/"
+            onClick={() => {
+              RemoveMenu();
+            }}
+            onMouseEnter={() => setShowSubMenu(true)}
+            onMouseLeave={() => setShowSubMenu(false)}
+          >
+            Gallery
+            {showSubMenu && <SubMenu />}
+          </NavLink>
+          <NavLink
+            className="hover:text-blue-600 smooth-transition ml-12"
+            to="/blog"
+            onClick={() => {
+              RemoveMenu();
+            }}
+            style={({ isActive }) => (isActive ? activeMenuStyles : {})}
+          >
+            Blog
+          </NavLink>
+          <NavLink
+            className="hover:text-blue-600 smooth-transition ml-12"
+            to="/about"
+            onClick={() => {
+              RemoveMenu();
+            }}
+            style={({ isActive }) => (isActive ? activeMenuStyles : {})}
+          >
+            About
+          </NavLink>
+          <NavLink
+            className="hover:text-blue-600 smooth-transition ml-12"
+            to="/contact"
+            onClick={() => {
+              RemoveMenu();
+            }}
+            style={({ isActive }) => (isActive ? activeMenuStyles : {})}
+          >
+            Contact
+          </NavLink>
 
-        <NavLink
-          className="hover:text-blue-600 smooth-transition ml-24"
-          to="/"
-          onClick={() => {
-            RemoveMenu();
-          }}
-          onMouseEnter={() => setShowSubMenu(true)}
-          onMouseLeave={() => setShowSubMenu(false)}
-        >
-          Gallery
-          {showSubMenu && <SubMenu />}
-        </NavLink>
-        <NavLink
-          className="hover:text-blue-600 smooth-transition"
-          to="/blog"
-          onClick={() => {
-            RemoveMenu();
-          }}
-          style={({ isActive }) => (isActive ? activeMenuStyles : {})}
-        >
-          Blog
-        </NavLink>
-        <NavLink
-          className="hover:text-blue-600 smooth-transition"
-          to="/about"
-          onClick={() => {
-            RemoveMenu();
-          }}
-          style={({ isActive }) => (isActive ? activeMenuStyles : {})}
-        >
-          About
-        </NavLink>
-        <NavLink
-          className="hover:text-blue-600 smooth-transition"
-          to="/contact"
-          onClick={() => {
-            RemoveMenu();
-          }}
-          style={({ isActive }) => (isActive ? activeMenuStyles : {})}
-        >
-          Contact
-        </NavLink>
-
-        <a
-          href="https://www.instagram.com/your-instagram-page"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FontAwesomeIcon icon={faInstagram} />
-        </a>
+          <a
+            href="https://www.instagram.com/your-instagram-page"
+            target="_blank"
+            rel="noreferrer"
+            className="ml-12 hover:text-blue-600 smooth-transition"
+          >
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+        </div>
       </div>
     </nav>
   );

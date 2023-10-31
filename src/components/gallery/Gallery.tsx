@@ -4,7 +4,8 @@ import ReactPaginate from "react-paginate";
 import Images from "./Images";
 import ResetLocation from "../../helpers/ResetLocation";
 import "react-slideshow-image/dist/styles.css";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
+import Carousel from "./Carousel";
 
 export type imagesToShow = {
   id: number;
@@ -81,6 +82,7 @@ const Gallery = () => {
 
   return (
     <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide mt-24">
+      <Carousel imagesToShow={currentBlogPosts} />
       <Images
         imagesToShow={currentBlogPosts}
         toggle={toggle}
