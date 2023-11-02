@@ -4,7 +4,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 interface CarouselProps {
   imagesToShow: { id: number; src: string; alt: string }[];
-  //   imagesToShow: string[];
 }
 
 export default function Carousel({ imagesToShow }: CarouselProps) {
@@ -15,15 +14,12 @@ export default function Carousel({ imagesToShow }: CarouselProps) {
     slidesToShow: 4,
     slidesToScroll: 1,
   };
-  //   const imageStyle = {
-  //     width: "800px", // Set a fixed width for all images
-  //     height: "auto", // Set a fixed height for all images
-  //   };
+
   return (
     <Slider {...settings} className="m-0 p-0">
       {imagesToShow.map((image, index) => (
-        <div key={index} className="m-0 p-0 carousel-slide">
-          <div className="w-full h-[420px] overflow-hidden flex items-center justify-center">
+        <div key={index} className="m-0 p-0 carousel-slide mb-0">
+          <div className="w-full h-[720px] overflow-hidden flex items-center justify-center transform: matrix(1, 0, 0, 1, 3.5, 0)">
             <img
               src={image.src}
               alt={`Slide ${index}`}

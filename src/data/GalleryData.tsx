@@ -1,4 +1,4 @@
-import ImgOne from "../assets/images/gallery/image-1.jpg";
+import ImgOne from "../assets/images/gallery/image-1.jpeg";
 import ImgTwo from "../assets/images/gallery/image-2.jpeg";
 import ImgThree from "../assets/images/gallery/image-3.jpeg";
 import ImgFour from "../assets/images/gallery/image-4.jpeg";
@@ -127,7 +127,7 @@ import ImgHundredTwentySix from "../assets/images/gallery/image-126.jpeg";
 import ImgHundredTwentySeven from "../assets/images/gallery/image-127.jpeg";
 import ImgHundredTwentyEight from "../assets/images/gallery/image-128.jpeg";
 import ImgHundredTwentyNine from "../assets/images/gallery/image-129.jpeg";
-import ImgHundredThirty from "../assets/images/gallery/image-130.jpeg";
+import ImgHundredThirty from "../assets/images/gallery/image-1.jpg";
 
 const GalleryData = [
   { id: 1, src: ImgOne, alt: "Georgia" },

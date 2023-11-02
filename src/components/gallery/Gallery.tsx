@@ -81,14 +81,15 @@ const Gallery = () => {
   }, [handleNextClick, handlePrevClick]);
 
   return (
-    <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide mt-24">
+    <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide ">
       <Carousel imagesToShow={currentBlogPosts} />
-      <Images
-        imagesToShow={currentBlogPosts}
-        toggle={toggle}
-        setModalImg={setModalImg}
-      />
+
       <section className="flex flex-col items-center w-full">
+        <Images
+          imagesToShow={currentBlogPosts}
+          toggle={toggle}
+          setModalImg={setModalImg}
+        />
         <ReactPaginate
           className="pagination"
           breakLabel="..."
