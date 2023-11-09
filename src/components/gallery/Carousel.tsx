@@ -19,7 +19,7 @@ export default function Carousel({ imagesToShow }: CarouselProps) {
     <Slider {...settings} className="m-0 p-0">
       {imagesToShow.map((image, index) => (
         <div key={index} className="m-0 p-0 carousel-slide mb-0">
-          <div className="w-full h-[720px] overflow-hidden flex items-center justify-center transform: matrix(1, 0, 0, 1, 3.5, 0)">
+          <div className="w-full h-[480px] mt-28 overflow-hidden flex items-bottom justify-center transform: matrix(1, 0, 0, 1, 3.5, 0)">
             <img
               src={image.src}
               alt={`Slide ${index}`}

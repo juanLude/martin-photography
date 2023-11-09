@@ -81,7 +81,7 @@ const Gallery = () => {
   }, [handleNextClick, handlePrevClick]);
 
   return (
-    <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide ">
+    <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide overflow-x-hidden">
       <Carousel imagesToShow={currentBlogPosts} />
 
       <section className="flex flex-col items-center w-full">
