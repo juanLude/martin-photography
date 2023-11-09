@@ -14,6 +14,10 @@ export default function Carousel({ imagesToShow }: CarouselProps) {
     slidesToShow: 4,
     slidesToScroll: 1,
   };
+  // Adjust the number of slides to show based on screen width
+  if (window.innerWidth <= 768) {
+    settings.slidesToShow = 1; // Set to 1 for small screens (e.g., <= 768px)
+  }
 
   return (
     <Slider {...settings} className="m-0 p-0">

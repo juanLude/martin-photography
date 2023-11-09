@@ -27,6 +27,7 @@ const Gallery = () => {
   );
   const [isOpen, setisOpen] = useState(false);
   const [targetImg, setTargetImg] = useState(0);
+  const [isOverlayActive, setIsOverlayActive] = useState(false);
 
   const handleNextClick = useCallback(() => {
     setTargetImg((prevImg) => (prevImg + 1) % currentBlogPosts.length);
@@ -46,6 +47,7 @@ const Gallery = () => {
 
   const toggle = () => {
     setisOpen(!isOpen);
+    setIsOverlayActive(!isOverlayActive);
   };
 
   const setModalImg = (imgIndex: number) => {
@@ -101,7 +103,6 @@ const Gallery = () => {
         />
       </section>
       {isOpen ? (
-        //Modal
         <section
           className={`img-modal w-screen h-screen fixed z-30 top-0 left-0 flex  justify-center bg-rgba(255, 255, 255, .15) backdrop-blur-sm ${
             isOpen ? "flex" : "hidden"
@@ -109,7 +110,7 @@ const Gallery = () => {
         >
           <button
             onClick={toggle}
-            className="absolute flex items-center justify-center z-40 text-2xl text-gray-200 text-bold p-2 bg-black rounded-full w-10 h-10 right-4 top-4 hover:-rotate-90 transition duration-500"
+            className="absolute flex items-center justify-center z-100 text-2xl text-gray-200 text-bold p-2 bg-black rounded-full w-10 h-10 right-4 top-4 hover:-rotate-90 transition duration-500"
           >
             X
           </button>

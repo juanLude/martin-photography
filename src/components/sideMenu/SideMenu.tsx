@@ -219,7 +219,7 @@ const SideMenu = () => {
             </h1>
           </NavLink>
         </div>
-        <div className="ml-96 ">
+        <div className="ml-auto">
           <NavLink
             className="inline-block hover:text-blue-600 smooth-transition "
             to="/"
