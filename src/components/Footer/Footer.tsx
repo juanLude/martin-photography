@@ -8,29 +8,32 @@ import {
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="flex flex-row gap-3">
-        {/* <div className="footer-info">
+    <footer className="bg-slate-700 text-white py-4">
+      <div className="container mx-auto flex flex-col items-center gap-3">
+        <div className="footer-info">
           <p>&copy; 2023 Juan Ludevid. All rights reserved.</p>
           <p>Contact: martinscarponi@gmail.com</p>
-        </div> */}
-        {/* <p>
+        </div>
+        <p>
           Want to stay in touch? Get social and keep up to date by clicking on
           the icons below.
-        </p> */}
-        <div className="social-media-icons">
-          <a href="https://www.facebook.com/your-facebook-page">
+        </p>
+        <div className="social-media-icons mt-4">
+          <a
+            href="https://www.facebook.com/your-facebook-page"
+            className="mr-4"
+          >
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href="https://www.twitter.com/your-twitter-page">
+          <a href="https://www.twitter.com/your-twitter-page" className="mr-4">
             <FontAwesomeIcon icon={faTwitter} />
           </a>
-          <a href="https://www.instagram.com/your-instagram-page">
+          <a
+            href="https://www.instagram.com/your-instagram-page"
+            className="mr-4"
+          >
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          {/* <a href="https://www.linkedin.com/in/your-linkedin-profile">
-            <FontAwesomeIcon icon={faLinkedIn} />
-          </a> */}
         </div>
       </div>
     </footer>

@@ -9,7 +9,7 @@ import Contact from "./components/contact/Contact";
 //Styles
 import "./core-ui/index.css";
 import BlogPost from "./components/blog-post/BlogPost";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 
 const App: FC = () => {
   return (

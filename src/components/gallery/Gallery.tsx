@@ -6,6 +6,7 @@ import ResetLocation from "../../helpers/ResetLocation";
 import "react-slideshow-image/dist/styles.css";
 // import Footer from "../Footer/Footer";
 import Carousel from "./Carousel";
+import Footer from "../Footer/Footer";
 
 export type imagesToShow = {
   id: number;
@@ -83,67 +84,69 @@ const Gallery = () => {
   }, [handleNextClick, handlePrevClick]);
 
   return (
-    <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide overflow-x-hidden">
-      <Carousel imagesToShow={currentBlogPosts} />
+    <>
+      <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide overflow-x-hidden ">
+        <Carousel imagesToShow={currentBlogPosts} />
 
-      <section className="flex flex-col items-center mx-auto w-full mt-24">
-        <Images
-          imagesToShow={currentBlogPosts}
-          toggle={toggle}
-          setModalImg={setModalImg}
-        />
-        <ReactPaginate
-          className="pagination"
-          breakLabel="..."
-          nextLabel=" &#62;"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={3}
-          pageCount={Math.ceil(GalleryData.length / 12)}
-          previousLabel="&#60;"
-        />
-      </section>
-      {isOpen ? (
-        <section
-          className={`img-modal w-screen h-screen fixed z-50 top-0 left-0 flex  justify-center bg-rgba(255, 255, 255, .15) backdrop-blur-sm ${
-            isOpen ? "flex" : "hidden"
-          }`}
-        >
-          <button
-            onClick={toggle}
-            className="absolute flex items-center justify-center z-100 text-2xl text-gray-200 text-bold p-2 bg-black rounded-full w-10 h-10 right-4 top-4 hover:-rotate-90 transition duration-500"
-          >
-            X
-          </button>
-          <button
-            onClick={handlePrevClick}
-            className="absolute flex items-center justify-center z-40 left-8 top-1/2 text-xl text-gray-200 text-bold p-6 bg-black rounded-full w-10 h-10 hover:bg-opacity-75 transition"
-            data-type="prev"
-          >
-            &lt;
-          </button>
-          <section className="slider-container relative w-4/5 flex items-center">
-            {currentBlogPosts.map((image, index) => (
-              <img
-                key={image.id}
-                className={`slider-slide ${
-                  targetImg === index ? "active" : "hidden"
-                } object-cover object-center w-full sm:h-2/3 md:h-3/4`}
-                src={image.src}
-                alt=""
-              />
-            ))}
-          </section>
-          <button
-            onClick={handleNextClick}
-            className="absolute z-40 flex items-center justify-center right-8 top-1/2 text-xl text-gray-200 text-bold p-6 bg-black rounded-full w-10 h-10 hover:bg-opacity-75 transition"
-            data-type="next"
-          >
-            &gt;
-          </button>
+        <section className="flex flex-col items-center mx-auto w-full mt-24 ">
+          <Images
+            imagesToShow={currentBlogPosts}
+            toggle={toggle}
+            setModalImg={setModalImg}
+          />
+          <ReactPaginate
+            className="pagination"
+            breakLabel="..."
+            nextLabel=" &#62;"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={Math.ceil(GalleryData.length / 12)}
+            previousLabel="&#60;"
+          />
         </section>
-      ) : null}
-      {/* <Footer /> */}
-    </article>
+        {isOpen ? (
+          <section
+            className={`img-modal w-screen h-screen fixed z-50 top-0 left-0 flex  justify-center bg-rgba(255, 255, 255, .15) backdrop-blur-sm ${
+              isOpen ? "flex" : "hidden"
+            }`}
+          >
+            <button
+              onClick={toggle}
+              className="absolute flex items-center justify-center z-100 text-2xl text-gray-200 text-bold p-2 bg-black rounded-full w-10 h-10 right-4 top-4 hover:-rotate-90 transition duration-500"
+            >
+              X
+            </button>
+            <button
+              onClick={handlePrevClick}
+              className="absolute flex items-center justify-center z-40 left-8 top-1/2 text-xl text-gray-200 text-bold p-6 bg-black rounded-full w-10 h-10 hover:bg-opacity-75 transition"
+              data-type="prev"
+            >
+              &lt;
+            </button>
+            <section className="slider-container relative w-4/5 flex items-center">
+              {currentBlogPosts.map((image, index) => (
+                <img
+                  key={image.id}
+                  className={`slider-slide ${
+                    targetImg === index ? "active" : "hidden"
+                  } object-cover object-center w-full sm:h-2/3 md:h-3/4`}
+                  src={image.src}
+                  alt=""
+                />
+              ))}
+            </section>
+            <button
+              onClick={handleNextClick}
+              className="absolute z-40 flex items-center justify-center right-8 top-1/2 text-xl text-gray-200 text-bold p-6 bg-black rounded-full w-10 h-10 hover:bg-opacity-75 transition"
+              data-type="next"
+            >
+              &gt;
+            </button>
+          </section>
+        ) : null}
+      </article>
+      <Footer />
+    </>
   );
 };
 

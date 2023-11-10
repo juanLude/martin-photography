@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,17 +8,36 @@ interface CarouselProps {
 }
 
 export default function Carousel({ imagesToShow }: CarouselProps) {
+  const [slidesToShow, setSlidesToShow] = useState(4);
+
+  useEffect(() => {
+    const updateSlidesToShow = () => {
+      if (window.innerWidth <= 768) {
+        setSlidesToShow(1);
+      } else {
+        setSlidesToShow(4);
+      }
+    };
+
+    // Initial check
+    updateSlidesToShow();
+
+    // Listen for window resize events
+    window.addEventListener("resize", updateSlidesToShow);
+
+    return () => {
+      // Remove the event listener when the component unmounts
+      window.removeEventListener("resize", updateSlidesToShow);
+    };
+  }, []);
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: slidesToShow, // Use the updated value
     slidesToScroll: 1,
   };
-  // Adjust the number of slides to show based on screen width
-  if (window.innerWidth <= 768) {
-    settings.slidesToShow = 1; // Set to 1 for small screens (e.g., <= 768px)
-  }
 
   return (
     <Slider {...settings} className="m-0 p-0">
