@@ -2,7 +2,7 @@ import { ImagesProp } from "./Gallery";
 
 const Images = ({ imagesToShow, toggle, setModalImg }: ImagesProp) => {
   return (
-    <section className="image-list grid sm:grid-cols-1 md:grid-cols-2 2xl:grid-cols-3  gap-1 mx-auto overflow-hidden w-full mt-24 ml-12">
+    <section className="image-list grid sm:grid-cols-1 md:grid-cols-2 2xl:grid-cols-3  gap-12  ">
       {imagesToShow.map((img, index) => (
         <section className="card-zoom" key={index}>
           <img

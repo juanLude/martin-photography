@@ -197,6 +197,7 @@ const SideMenu = () => {
           alt="Toggle menu"
         />
       </div>
+
       <div
         className={`main-menu${
           hiddenMenu ? `` : ` show-menu`

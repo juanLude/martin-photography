@@ -86,7 +86,7 @@ const Gallery = () => {
     <article className="sm:col-span-5 md:col-span-4 min-h-screen scrollbar-hide overflow-x-hidden">
       <Carousel imagesToShow={currentBlogPosts} />
 
-      <section className="flex flex-col items-center w-full">
+      <section className="flex flex-col items-center mx-auto w-full mt-24">
         <Images
           imagesToShow={currentBlogPosts}
           toggle={toggle}
@@ -104,7 +104,7 @@ const Gallery = () => {
       </section>
       {isOpen ? (
         <section
-          className={`img-modal w-screen h-screen fixed z-30 top-0 left-0 flex  justify-center bg-rgba(255, 255, 255, .15) backdrop-blur-sm ${
+          className={`img-modal w-screen h-screen fixed z-50 top-0 left-0 flex  justify-center bg-rgba(255, 255, 255, .15) backdrop-blur-sm ${
             isOpen ? "flex" : "hidden"
           }`}
         >
