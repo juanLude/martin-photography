@@ -4,6 +4,7 @@ import Footer from "../Footer/Footer";
 
 const Contact = () => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Martin Scarponi | Photgraphy";
   });
   return (

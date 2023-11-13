@@ -55,6 +55,7 @@ const Gallery = () => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = "Martin Scarponi | Photography";
     setEndOffset(itemOffset + 12);
     setcurrentBlogPosts([...GalleryData].slice(itemOffset, endOffset));
