@@ -196,6 +196,21 @@ const SideMenu = () => {
           src={hiddenMenu ? hiddenMenuIcon : activeMenuIcon}
           alt="Toggle menu"
         />
+        <NavLink
+          className="hover:text-blue-600 smooth-transition text-right md:hidden"
+          to="/"
+          onClick={() => {
+            RemoveMenu();
+          }}
+        >
+          <h1 className="text-base md:text-xl lg:text-2xl text-black font-light">
+            <span className="text-xl sm:text-2xl md:text-3xl font-semibold font-namefont">
+              Martin Scarponi
+            </span>
+            {/* <br />
+            Photography */}
+          </h1>
+        </NavLink>
       </div>
 
       <div
@@ -203,26 +218,28 @@ const SideMenu = () => {
           hiddenMenu ? `` : ` show-menu`
         } flex flex-col md:flex-row items-center text-xl gap-8 text-slate-600 hidden md:flex p-6`}
       >
-        <div className="flex items-center">
-          <NavLink
-            className="hover:text-blue-600 smooth-transition"
-            to="/"
-            onClick={() => {
-              RemoveMenu();
-            }}
-          >
-            <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light pl-3 pr-6">
-              <span className="text-4xl sm:text-5xl font-semibold font-namefont">
-                Martin Scarponi
-              </span>
-              {/* <br />
+        {hiddenMenu && (
+          <div className="flex items-center">
+            <NavLink
+              className="hover:text-blue-600 smooth-transition "
+              to="/"
+              onClick={() => {
+                RemoveMenu();
+              }}
+            >
+              <h1 className="text-xl sm:text-2xl md:text-3xl text-black font-light pl-3 pr-6 ">
+                <span className="text-4xl sm:text-5xl font-semibold font-namefont">
+                  Martin Scarponi
+                </span>
+                {/* <br />
             Photography */}
-            </h1>
-          </NavLink>
-        </div>
-        <div className="ml-auto">
+              </h1>
+            </NavLink>
+          </div>
+        )}
+        <div className="md:ml-auto flex flex-col items-center md:flex-row md:items-start">
           <NavLink
-            className="inline-block hover:text-blue-600 smooth-transition "
+            className="inline-block hover:text-blue-600 smooth-transition mt-4 md:mt-0 mb-4 md:mb-0"
             to="/"
             onClick={() => {
               RemoveMenu();
@@ -234,7 +251,7 @@ const SideMenu = () => {
             {showSubMenu && <SubMenu />}
           </NavLink>
           <NavLink
-            className="hover:text-blue-600 smooth-transition ml-12"
+            className="hover:text-blue-600 smooth-transition md:ml-12 mb-4 md:mb-0"
             to="/blog"
             onClick={() => {
               RemoveMenu();
@@ -244,7 +261,7 @@ const SideMenu = () => {
             Blog
           </NavLink>
           <NavLink
-            className="hover:text-blue-600 smooth-transition ml-12"
+            className="hover:text-blue-600 smooth-transition md:ml-12 mb-4 md:mb-0"
             to="/about"
             onClick={() => {
               RemoveMenu();
@@ -254,7 +271,7 @@ const SideMenu = () => {
             About
           </NavLink>
           <NavLink
-            className="hover:text-blue-600 smooth-transition ml-12"
+            className="hover:text-blue-600 smooth-transition md:ml-12 mb-4 md:mb-0"
             to="/contact"
             onClick={() => {
               RemoveMenu();
@@ -268,7 +285,7 @@ const SideMenu = () => {
             href="https://www.instagram.com/your-instagram-page"
             target="_blank"
             rel="noreferrer"
-            className="ml-12 hover:text-blue-600 smooth-transition"
+            className="md:ml-12 hover:text-blue-600 smooth-transition"
           >
             <FontAwesomeIcon icon={faInstagram} />
           </a>

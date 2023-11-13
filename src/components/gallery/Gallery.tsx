@@ -4,7 +4,6 @@ import ReactPaginate from "react-paginate";
 import Images from "./Images";
 import ResetLocation from "../../helpers/ResetLocation";
 import "react-slideshow-image/dist/styles.css";
-// import Footer from "../Footer/Footer";
 import Carousel from "./Carousel";
 import Footer from "../Footer/Footer";
 
