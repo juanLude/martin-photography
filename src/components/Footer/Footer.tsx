@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
-  faTwitter,
   faInstagram,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";

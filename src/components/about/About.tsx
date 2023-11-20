@@ -17,15 +17,23 @@ const About = () => {
         <h2 className="text-4xl text-center uppercase text-black mt-36 p-4">
           About
         </h2>
-        <section className="flex flex-col items-center mt-10 text-2xl gap-5 text-slate-600 p-2">
-          <p className="text-base  sm:text-lg ">
-            {console.log("HOLA", process.env.REACT_APP_PORT)}
-            My name is Ekaterine Mitagvaria, and I come from the beautiful city
-            of Tbilisi, Georgia. Programming is my passion, and I love every
-            moment I spend immersed in it. The joy of creating something from
-            scratch and bringing ideas to life is an absolute pleasure for me.{" "}
+        <section className="flex flex-col items-center mt-10 text-2xl gap-5 text-slate-600 px-12 pb-6">
+          <p className="text-base  sm:text-lg">
+            I am a photographer with a wide range of skills. My business
+            provides various photography services, such as headshots,
+            fashion/lifestyle shoots, portraits, and event photography, to meet
+            diverse needs. This flexibility enables the capture of special
+            moments and the creation of compelling visual stories across
+            different genres. What distinguishes my photography business is my
+            distinctive style and approach. My ability to pay attention to
+            details, my creativity, and my knack for connecting with clients
+            allow me to capture images that authentically mirror their
+            personalities and aspirations. Whether it's conveying a professional
+            vibe in headshots, highlighting the beauty and grace of fashion and
+            lifestyle, or freezing genuine emotions in portraits and events, I
+            excel at revealing the essence of every subject.{" "}
           </p>
-          <p className="text-base  sm:text-lg ">
+          {/* <p className="text-base  sm:text-lg ">
             Besides programming, another great love of mine is photography. I
             don't carry any heavy cameras; instead, I rely on my trusty iPhone
             to capture the essence of every new place I visit. These photographs
@@ -61,7 +69,7 @@ const About = () => {
             discoveries. Whether I'm immersed in code or capturing mesmerizing
             sceneries, I know that these pursuits will always be an essential
             part of who I am.
-          </p>
+          </p> */}
         </section>
         <section className="grid grid-cols-2 sm:flex-row gap-1 p-2 ">
           <section>
